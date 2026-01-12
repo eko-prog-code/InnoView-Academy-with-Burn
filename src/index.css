@@ -551,7 +551,7 @@ h5 { font-size: 1rem; }
 
 /* ================= BURNED TICKET STYLE ================= */
 .ticket-card.burned {
-  opacity: 0.6;
+  opacity: 0.7;
   position: relative;
 }
 
@@ -569,6 +569,66 @@ h5 { font-size: 1rem; }
     transparent 100%
   );
   pointer-events: none;
+}
+
+.burned-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-15deg);
+  background: rgba(0, 0, 0, 0.85);
+  padding: 6px 12px; /* Diperkecil dari 10px 20px */
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px; /* Diperkecil dari 10px */
+  color: var(--danger);
+  font-weight: 600;
+  font-size: 12px; /* Diperkecil dari 14px */
+  pointer-events: none;
+  z-index: 1;
+  border: 1px solid var(--danger); /* Diperkecil dari 2px */
+  box-shadow: 0 3px 10px rgba(239, 68, 68, 0.3);
+  white-space: nowrap;
+}
+
+.burned-overlay svg {
+  width: 14px; /* Diperkecil dari 20px */
+  height: 14px;
+}
+
+/* Di Desktop - sedikit lebih besar */
+@media (min-width: 769px) {
+  .burned-overlay {
+    padding: 8px 16px;
+    font-size: 13px;
+    gap: 8px;
+    border-width: 1.5px;
+  }
+  
+  .burned-overlay svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+/* Untuk card ticket yang kecil di mobile */
+@media (max-width: 480px) {
+  .ticket-card {
+    padding: 16px;
+  }
+  
+  .burned-overlay {
+    padding: 4px 10px;
+    font-size: 11px;
+    gap: 5px;
+    border-width: 1px;
+  }
+  
+  .burned-overlay svg {
+    width: 12px;
+    height: 12px;
+  }
 }
 
 .burned-overlay {
